@@ -35,14 +35,14 @@ self.optimizer.zero_grad()
 loss.backward()
 self.optimizer.step()
 ```
- ReLu activation functions were used in all layers except the final layer since we are trying to approximate a continuous-valued function and don't wish to inappropriately truncate our output's range to values above zero.
+ ReLu activation functions were used in all layers except the final layer since we are trying to approximate a continuous-valued function and don't wish to inappropriately truncate our output's range to only non-negative values.
 
 ### Plot of Rewards
 
 <!-- A plot of rewards per episode is included to illustrate that the agent is able to receive an average reward (over 100 episodes) of at least +13. The submission reports the number of episodes needed to solve the environment. -->
 ![score plot](./score_plot.png)
 
-A plot of the episodic score against the episode number is shown above. We were fortunate that our neural network was able to monotonically improve for the majority of training instances and solved the task inside of 800 episodes.
+A plot of the episodic score against the episode number is shown above. We were fortunate that our neural network was able to monotonically improve for the majority of training instances and solved the task inside of 700 episodes.
 
 ### Ideas for Future Work
 
