@@ -72,7 +72,6 @@ def ddqn(
     brain_name = env.brain_names[brain_index]
     for i_episode in range(1, n_episodes+1):
         env_info = env.reset(train_mode=train_mode)[brain_name]
-        print(env_info)
         state = env_info.vector_observations[brain_index]
         score = 0
         for t in range(max_t):
