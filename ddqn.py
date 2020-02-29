@@ -69,7 +69,7 @@ def ddqn(
     scores = []                        # list containing scores from each episode
     scores_window = deque(maxlen=score_window)  # last 100 scores
     eps = eps_start                    # initialize epsilon
-    brain_name = env
+    brain_name = env.brain_names[brain_index]
     for i_episode in range(1, n_episodes+1):
         env_info = env.reset(train_mode=train_mode)[brain_name]
         print(env_info)
