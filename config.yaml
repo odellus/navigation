@@ -13,8 +13,8 @@ Agent:
   Buffer_size: 100000    # replay buffer size
   Batch_size: 64         # minibatch size
   Gamma: 0.99            # discount factor
-  Tau: 1e-3              # for soft update of target parameters
-  Lr: 5e-4               # learning rate
+  Tau: 0.001              # for soft update of target parameters
+  Lr: 0.0005               # learning rate
   Update_every: 4        # how often to update the network
   Brain_index: 0         # index of agent in environment
 
