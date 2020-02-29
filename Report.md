@@ -48,3 +48,8 @@ A plot of the episodic score against the episode number is shown above. We were 
 
 <!-- The submission has concrete future ideas for improving the agent's performance. -->
 To further improve the performance of our agent we could update the model to use a pair of Dueling DQNs for the Double DQN updates and implement a Prioritized Experience Replay buffer to update the network on samples with more significant TD-error.
+
+### References
+1. [Double Deep Q Networks](https://towardsdatascience.com/double-deep-q-networks-905dd8325412)
+2. [PyTorch Tutorials](https://pytorch.org/tutorials/)
+3. [IPython Reference](https://ipython.readthedocs.io/en/stable/interactive/reference.html#command-line-usage)

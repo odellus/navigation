@@ -28,7 +28,7 @@ Training:
   Train_mode: True
   Score_window: 100
 
-# Hyperparameters using to define the network architecture
+# Hyperparameters used to define the network architecture
 Model:
   fc1_size: 100          # Dimensionality of first fully connected layer
   fc2_size: 100          # Dimensionality of second fully connected layer
