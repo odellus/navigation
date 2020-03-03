@@ -76,7 +76,7 @@ The architecture of the neural network used to approximate the state-action valu
 
 ![nn arch](./nn_arch.png)
 
- ReLu activation functions were used for both hidden layers. The final layer was left without a nonlinear activation function since we are trying to approximate a continuous-valued function and don't wish to inappropriately truncate  our output's range to only non-negative values.
+ ReLu activation functions were used for both hidden layers. The final layer was left without a nonlinear activation function since we are approximating a continuous-valued vector function and don't wish to inappropriately truncate  our output's range to only non-negative values.
 
 ### Plot of Rewards
 
