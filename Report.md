@@ -4,6 +4,8 @@
 ### Learning Algorithm
 
 <!-- The report clearly describes the learning algorithm, along with the chosen hyperparameters. It also describes the model architectures for any neural networks. -->
+
+
 We used Double DQN to solve the Banana Unity environment with a pair of neural network containing two fully connected hidden layers according to the following update rule:
 ```python
 # We randomly select whether we evaluate qnetwork_target actions with qnetwork_local
@@ -35,7 +37,46 @@ self.optimizer.zero_grad()
 loss.backward()
 self.optimizer.step()
 ```
- ReLu activation functions were used in all layers except the final layer since we are trying to approximate a continuous-valued function and don't wish to inappropriately truncate our output's range to only non-negative values.
+The hyperparameters of the Double DQN algorithm we used are described in `config.yaml`:
+```yaml
+# Parameters for the Unity Environment
+Environment:
+  # location of executable
+  Filepath: /data/Banana_Linux_NoVis/Banana.x86_64
+  Success: 13.0          # score success cutoff
+
+# Parameters for the DQN Agent
+Agent:
+  Buffer_size: 100000    # replay buffer size
+  Batch_size: 64         # minibatch size
+  Gamma: 0.99            # discount factor
+  Tau: 0.001             # interpolation parameter for soft update of target network
+  Lr: 0.0005             # learning rate
+  Update_every: 4        # how often to update the network
+  Brain_index: 0         # index of agent in environment
+
+# Hyperparameters used during optimization
+Training:
+  Number_episodes: 2000  # Number of episodes
+  Max_timesteps: 1000    # Maximum number of timesteps per episode
+  Eps_start: 1.0         # Starting epsilon value for e-Greedy agent
+  Eps_end:               # Minimum value for e-Greedy agent
+  Eps_decay:  0.995      # How much epsilon decays during each episode
+  Train_mode: True
+  Score_window: 100
+
+# Hyperparameters used to define the network architecture
+Model:
+  fc1_size: 100          # Dimensionality of first fully connected layer
+  fc2_size: 100          # Dimensionality of second fully connected layer
+
+```
+
+The architecture of the neural network used to approximate the state-action value function _Q(s,a)_ is shown below
+
+![nn arch](./nn_arch.png)
+
+ ReLu activation functions were used for both hidden layers. The final layer was left without a nonlinear activation function since we are trying to approximate a continuous-valued function and don't wish to inappropriately truncate  our output's range to only non-negative values.
 
 ### Plot of Rewards
 
